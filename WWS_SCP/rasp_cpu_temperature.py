@@ -34,49 +34,49 @@ is_connected = False
 def build_ram_info_message(messageID):
    """Return the formated JSON message for RAM INFOS"""
    infos = sensors.ram_info()
-   mqtt_payload ='{"mode":"async", "messageType":"' + messageID + '","messages":[{'
-   mqtt_payload = mqtt_payload + '"Total":' + str(infos[0])
-   mqtt_payload = mqtt_payload + ', "Used":' + str(infos[1])
-   mqtt_payload = mqtt_payload + ', "Free":' + str(infos[2])
-   mqtt_payload = mqtt_payload + ', "timestamp":' + str(int(time.time()))
-   mqtt_payload = mqtt_payload + '}]}'
+   mqtt_payload =  '{"mode":"async", "messageType":"' + messageID + '","messages":[{'
+   mqtt_payload += '"Total":' + str(infos[0])
+   mqtt_payload += ', "Used":' + str(infos[1])
+   mqtt_payload += ', "Free":' + str(infos[2])
+   mqtt_payload += ', "timestamp":' + str(int(time.time()))
+   mqtt_payload += '}]}'
    return mqtt_payload
 
 def build_cpu_info_message(messageID):
    """Return the formated JSON message for CPU INFO"""
    infos = sensors.cpu_info()
    comp = sensors.cpu_info_comp()
-   mqtt_payload ='{"mode":"async", "messageType":"' + messageID + '","messages":[{'
-   mqtt_payload = mqtt_payload + '"CPU_Brand":' + str(infos[0])
-   mqtt_payload = mqtt_payload + ', "CPU_Version":' + str(infos[1])
-   mqtt_payload = mqtt_payload + ', "CPU_Hardware":' + str(infos[2])
-   mqtt_payload = mqtt_payload + ', "CPU_Hz_actual":' + str(infos[3])
-   mqtt_payload = mqtt_payload + ', "Owner":' + CLIENT_ID
-   mqtt_payload = mqtt_payload + ', "Serial":' + str(comp[1])
-   mqtt_payload = mqtt_payload + ', "Revision":' +  str(comp[0])
-   mqtt_payload = mqtt_payload + ', "timestamp":' + str(int(time.time()))
-   mqtt_payload = mqtt_payload + '}]}'
+   mqtt_payload =  '{"mode":"async", "messageType":"' + messageID + '","messages":[{'
+   mqtt_payload += '"CPU_Brand":' + str(infos[0])
+   mqtt_payload += ', "CPU_Version":' + str(infos[1])
+   mqtt_payload += ', "CPU_Hardware":' + str(infos[2])
+   mqtt_payload += ', "CPU_Hz_actual":' + str(infos[3])
+   mqtt_payload += ', "Owner":' + CLIENT_ID
+   mqtt_payload += ', "Serial":' + str(comp[1])
+   mqtt_payload += ', "Revision":' +  str(comp[0])
+   mqtt_payload += ', "timestamp":' + str(int(time.time()))
+   mqtt_payload += '}]}'
    return mqtt_payload
 
 def build_cpu_use_message(messageID):
    """Return the formated JSON message for RAM USAGE"""
-   mqtt_payload ='{"mode":"async", "messageType":"' + messageID + '","messages":[{'
-   mqtt_payload = mqtt_payload + '"Temperature":' + str(sensors.cpu_temperature())
-   mqtt_payload = mqtt_payload + ', "Usage_perc":' + str(sensors.cpu_use())
-   mqtt_payload = mqtt_payload + ', "timestamp":' + str(int(time.time()))
-   mqtt_payload = mqtt_payload + '}]}'
+   mqtt_payload =  '{"mode":"async", "messageType":"' + messageID + '","messages":[{'
+   mqtt_payload += '"Temperature":' + str(sensors.cpu_temperature())
+   mqtt_payload += ', "Usage_perc":' + str(sensors.cpu_use())
+   mqtt_payload += ', "timestamp":' + str(int(time.time()))
+   mqtt_payload += '}]}'
    return mqtt_payload
 
 def build_disk_space_info_message(messageID):
    """Return the formated JSON message for DISK SPACE INFO"""
    infos = sensors.diskspace_info()
-   mqtt_payload ='{"mode":"async", "messageType":"' + messageID + '","messages":[{'
-   mqtt_payload = mqtt_payload + '"Total":' + str(infos[0])
-   mqtt_payload = mqtt_payload + ', "Used":' + str(infos[1])
-   mqtt_payload = mqtt_payload + ', "Available":' + str(infos[2])
-   mqtt_payload = mqtt_payload + ', "Usage_perc":' + str(float(infos[3].replace("%", "")))
-   mqtt_payload = mqtt_payload + ', "timestamp":' + str(int(time.time()))
-   mqtt_payload = mqtt_payload + '}]}'
+   mqtt_payload =  '{"mode":"async", "messageType":"' + messageID + '","messages":[{'
+   mqtt_payload += '"Total":' + str(infos[0])
+   mqtt_payload += ', "Used":' + str(infos[1])
+   mqtt_payload += ', "Available":' + str(infos[2])
+   mqtt_payload += ', "Usage_perc":' + str(float(infos[3].replace("%", "")))
+   mqtt_payload += ', "timestamp":' + str(int(time.time()))
+   mqtt_payload += '}]}'
    return mqtt_payload
 
 def dispatch_instruction(messageID):
